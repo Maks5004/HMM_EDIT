@@ -1,0 +1,29 @@
+DEFINITION MODULE M_Main;
+
+ FROM Window  IMPORT AbsCoord,CursorOn,CursorOff,FrameStr,DirectWrite,ClrEol,DelLine,Hide,
+                     RelCoord,ConvertCoords,GotoXY,At,SetTitle,TitleMode,
+                     Use,Open,WinDef,WinType,Color,InsLine,Clear,SingleFrame,
+                     TextColor,DoubleFrame,Close,PutOnTop,Change;
+
+ TYPE  Nm   = RECORD;
+               Mn:ARRAY[1..15] OF CHAR;
+               Cm:ARRAY[1..78] OF CHAR;
+              END;
+       Menu = RECORD;
+               A_Nm : ARRAY[1..25] OF Nm;
+               UD   : BOOLEAN;
+              END;
+
+ VAR  BD,SHD     : WinDef;
+      BT,SHT     : WinType;
+      SD,SHAD    : WinDef;
+      ST,SHAT    : WinType;
+
+
+ PROCEDURE SetStyle(Nom:CARDINAL;Nb,Fr:SHORTCARD);
+ PROCEDURE Open_Menu(Nom,X0,Y0:CARDINAL;DEST:Menu):CARDINAL;
+ PROCEDURE OpenBck(D:CHAR;F,B:CARDINAL);
+ PROCEDURE CloseBck;
+ PROCEDURE Close_Menu(NOM:CARDINAL);
+
+END M_Main.
